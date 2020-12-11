@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Myle Dashboard</title>
+        <base href="/">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Withinpixels">
+
+        <!--- ICONS -->
+        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/favicon/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/favicon/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/favicon/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/favicon/apple-touch-icon-144x144.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="60x60" href="assets/favicon/apple-touch-icon-60x60.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="120x120" href="assets/favicon/apple-touch-icon-120x120.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="76x76" href="assets/favicon/apple-touch-icon-76x76.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="assets/favicon/apple-touch-icon-152x152.png" />
+        <link rel="icon" type="image/png" href="assets/favicon/favicon-196x196.png" sizes="196x196" />
+        <link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="assets/favicon/favicon-16x16.png" sizes="16x16" />
+        <link rel="icon" type="image/png" href="assets/favicon/favicon-128.png" sizes="128x128" />
+        <meta name="application-name" content="&nbsp;"/>
+        <meta name="msapplication-TileColor" content="#FFFFFF" />
+        <meta name="msapplication-TileImage" content="assets/favicon/mstile-144x144.png" />
+        <meta name="msapplication-square70x70logo" content="assets/favicon/mstile-70x70.png" />
+        <meta name="msapplication-square150x150logo" content="assets/favicon/mstile-150x150.png" />
+        <meta name="msapplication-wide310x150logo" content="assets/favicon/mstile-310x150.png" />
+        <meta name="msapplication-square310x310logo" content="assets/favicon/mstile-310x310.png" />
+
+        <meta name="theme-color" content="#ffffff ">
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+        <base href="/">
+        <!--
+          manifest.json provides metadata used when your web app is added to the
+          homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+        -->
+        <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css' rel='stylesheet' />
+
+        <noscript id="jss-insertion-point"></noscript>
+
+        <style type="text/css">
+            #fuse-splash-screen {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #2D323D;
+                z-index: 99999;
+                pointer-events: none;
+            }
+
+            #fuse-splash-screen .center {
+                display: block;
+                width: 100%;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            #fuse-splash-screen .logo {
+                width: 128px;
+                margin: 0 auto;
+            }
+
+            #fuse-splash-screen .logo img {
+                filter: drop-shadow(0px 10px 6px rgba(0, 0, 0, 0.2))
+            }
+
+            #fuse-splash-screen .spinner-wrapper {
+                display: block;
+                position: relative;
+                width: 100%;
+                min-height: 100px;
+                height: 100px;
+            }
+
+            #fuse-splash-screen .spinner-wrapper .spinner {
+                position: absolute;
+                overflow: hidden;
+                left: 50%;
+                margin-left: -50px;
+                animation: outer-rotate 2.91667s linear infinite;
+            }
+
+            #fuse-splash-screen .spinner-wrapper .spinner .inner {
+                width: 100px;
+                height: 100px;
+                position: relative;
+                animation: sporadic-rotate 5.25s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+            }
+
+            #fuse-splash-screen .spinner-wrapper .spinner .inner .gap {
+                position: absolute;
+                left: 49px;
+                right: 49px;
+                top: 0;
+                bottom: 0;
+                border-top: 10px solid;
+                box-sizing: border-box;
+            }
+
+            #fuse-splash-screen .spinner-wrapper .spinner .inner .left,
+            #fuse-splash-screen .spinner-wrapper .spinner .inner .right {
+                position: absolute;
+                top: 0;
+                height: 100px;
+                width: 50px;
+                overflow: hidden;
+            }
+
+            #fuse-splash-screen .spinner-wrapper .spinner .inner .left .half-circle,
+            #fuse-splash-screen .spinner-wrapper .spinner .inner .right .half-circle {
+                position: absolute;
+                top: 0;
+                width: 100px;
+                height: 100px;
+                box-sizing: border-box;
+                border: 10px solid #4285F4;
+                border-bottom-color: transparent;
+                border-radius: 50%;
+            }
+
+            #fuse-splash-screen .spinner-wrapper .spinner .inner .left {
+                left: 0;
+            }
+
+            #fuse-splash-screen .spinner-wrapper .spinner .inner .left .half-circle {
+                left: 0;
+                border-right-color: transparent;
+                animation: left-wobble 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+                -webkit-animation: left-wobble 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+            }
+
+            #fuse-splash-screen .spinner-wrapper .spinner .inner .right {
+                right: 0;
+            }
+
+            #fuse-splash-screen .spinner-wrapper .spinner .inner .right .half-circle {
+                right: 0;
+                border-left-color: transparent;
+                animation: right-wobble 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+                -webkit-animation: right-wobble 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+            }
+
+            @keyframes outer-rotate {
+                0% {
+                    transform: rotate(0deg) scale(0.5);
+                }
+                100% {
+                    transform: rotate(360deg) scale(0.5);
+                }
+            }
+
+            @keyframes left-wobble {
+                0%, 100% {
+                    transform: rotate(130deg);
+                }
+                50% {
+                    transform: rotate(-5deg);
+                }
+            }
+
+            @keyframes right-wobble {
+                0%, 100% {
+                    transform: rotate(-130deg);
+                }
+                50% {
+                    transform: rotate(5deg);
+                }
+            }
+
+            @keyframes sporadic-rotate {
+                12.5% {
+                    transform: rotate(135deg);
+                }
+                25% {
+                    transform: rotate(270deg);
+                }
+                37.5% {
+                    transform: rotate(405deg);
+                }
+                50% {
+                    transform: rotate(540deg);
+                }
+                62.5% {
+                    transform: rotate(675deg);
+                }
+                75% {
+                    transform: rotate(810deg);
+                }
+                87.5% {
+                    transform: rotate(945deg);
+                }
+                100% {
+                    transform: rotate(1080deg);
+                }
+            }
+        </style>
+        <!-- / FUSE Splash Screen CSS -->
+    </head>
+    <body>
+        <noscript>
+            You need to enable JavaScript to run this app.
+        </noscript>
+        <div id="root" class="flex">
+            <!-- FUSE Splash Screen -->
+            <div id="fuse-splash-screen">
+
+                <div class="center">
+
+                    <div class="logo">
+                        <img width="128" src="assets/images/logos/myle_white.svg" alt="logo">
+                        <!--<img width="128" src="assets/images/logos/fuse.svg" alt="logo">-->
+                    </div>
+
+                    <!-- Material Design Spinner -->
+                    <div class="spinner-wrapper">
+                        <div class="spinner">
+                            <div class="inner">
+                                <div class="gap"></div>
+                                <div class="left">
+                                    <div class="half-circle"></div>
+                                </div>
+                                <div class="right">
+                                    <div class="half-circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- / Material Design Spinner -->
+                </div>
+            </div>
+            <!-- / FUSE Splash Screen -->
+        </div>
+    </body>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMFChBNXj0MTKp0xeQIvrFbA5vuFxHb_Y&libraries=places&language=en&region=US"></script>
+    <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/r6gjo0gv';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>
+</html>

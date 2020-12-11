@@ -1,0 +1,28 @@
+.account-settings-container{
+  padding: 0;
+  .toolbar{
+    height: 85px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #dfdfdf;
+    .btn-container{
+      display: flex;
+      margin: 10px 27px 12px 0;
+      div:nth-child(2){
+        margin-left: 15px;
+      }
+    }
+  }
+  .form-container{
+    padding: 20px;
+    .btn-container{
+      margin-left: 35px;
+      margin-top: 25px;
+    }
+  }
+}
+
+

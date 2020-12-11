@@ -1,0 +1,325 @@
+.create-ride-dialog {
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 875px;
+  min-height: 775px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  background-color: #FFFFFF;
+  border: 1px solid #E6E7F0;
+  border-top: none;
+  border-bottom: none;
+  label{
+    color: rgba(0, 0, 0, 0.601399);
+  }
+  .first-block{
+    min-width: 165px;
+    background: #F5F5F5;
+    border-radius: 4px;
+    padding: 40px 38px;
+    position: relative;
+    h1{
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      text-align: center;
+      line-height: 24px;
+      letter-spacing: 1.5px;
+      color: #BDBDBD;
+      margin: 1px 0;
+    }
+    .steps{
+      display: flex;
+      flex-direction: column;
+      margin: 79px 0;
+      .step {
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 32px;
+        .ellipse{
+          height: 40px;
+          width: 40px;
+          min-width: 40px;
+          border-radius: 50%;
+          text-align: center;
+          font-family: Roboto;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 40px;
+          letter-spacing: 0.1px;
+          background: #FFFFFF;
+          color: #757575;
+        }
+        h3{
+          font-family: Roboto;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 14px;
+          line-height: 40px;
+          letter-spacing: 0.1px;
+          color: #757575;
+          margin: 0 0 0 10px;
+        }
+      }
+      .step:nth-child(2), .step:nth-child(3) {
+        .ellipse:before {
+          content: '';
+          display: block;
+          height: 30px;
+          width: 21px;
+          margin-top: -30px;
+          opacity: 0.7;
+          border-right: 1.7px dashed #E0E0E0;
+        }
+      }
+      .step.active:nth-child(2), .step.active:nth-child(3) {
+        .ellipse:before {
+          content: '';
+          display: block;
+          height: 31px;
+          width: 21px;
+          opacity: 0.7;
+          border-right: 1.7px dashed #536DFE;
+        }
+      }
+      .active{
+        .ellipse{
+          background: #536DFE;
+          color: #FFFFFF;
+        }
+        h3{
+          color: #000000;
+        }
+      }
+    }
+    .image{
+      margin: 38px 0 0 10px;
+    }
+    .image-step-2{
+      margin: 38px 0 0 10px;
+    }
+    .distance{
+      position: absolute;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 140px !important;
+      height: 42px;
+      background: #D8DEE8;
+      border-radius: 4px;
+      bottom: 37px;
+      left: 39px;
+      padding: 9px 12px;
+      font-family: Roboto;
+      font-style: normal;
+      letter-spacing: 0.1px;
+      color: #4F4F4F;
+      .distance-image{
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+      }
+      h3{
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 500;
+        margin: 0;
+      }
+      h5{
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: normal;
+        margin: 0;
+      }
+    }
+  }
+  .second-block{
+    width: 100%;
+    .form-control{
+      width: 100%;
+      margin-bottom: 12px;
+      legend{
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.1px;
+        color: rgba(0, 0, 0, 0.87);
+        mix-blend-mode: normal;
+        opacity: 0.6;
+      }
+    }
+    // first step
+    .radio-group{
+      width: 100%;
+      margin-top: 23px;
+      flex-direction: initial;
+      justify-content: space-between;
+      label {
+        width: 42%;
+        height: 40px;
+      }
+    }
+    // second step
+    .create-ride-dialog-continue-btn{
+      display: flex;
+      justify-content: flex-end;
+    }
+    // third step
+    .DayPicker{
+      font-size: 1.5rem;
+      .DayPicker-Month {
+        margin: 0;
+        width: 100%;
+        argin-left: -30px;
+      }
+      .DayPicker-Caption {
+        position: relative;
+        padding: 0;
+        margin: 7px 0 26px;
+        div {
+          font-family: Roboto;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 19px;
+          letter-spacing: 0.1px;
+          color: #828282;
+          &:after {
+            display: block;
+            width: 55%;
+            content: '';
+            position: absolute;
+            border-bottom: 1px solid #E2E2EA;
+            top: 50%;
+            left: 130px;
+          }
+        }
+      }
+      .DayPicker-NavBar{
+        span {
+          width: 32px;
+          height: 32px;
+          margin-top: -15px;
+          border: 1px solid #E2E2EA;
+          box-sizing: border-box;
+          border-radius: 8px;
+          background-size: auto;
+          z-index: 1;
+          background-image: "url('../assets/img/createRide/Shape.png')"
+        }
+        span:first-child {
+          margin-right: 38px;
+        }
+        span:last-child{
+          margin-right: -4px;
+          transform: matrix(1, 0, 0, -1, 0, 0);
+        }
+      }
+      .DayPicker-WeekdaysRow{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .DayPicker-Weekday{
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 21px;
+        text-align: center;
+        letter-spacing: 0.857143px;
+        text-transform: uppercase;
+        color: #92929D;
+        margin-right: 40px;
+        padding: 7px 10px;
+      }
+      .DayPicker-Body{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 5px;
+      }
+      .DayPicker-Week{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 5px;
+      }
+      .DayPicker-Day{
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        text-align: center;
+        color: #171725;
+        width: 25px;
+        height: 23px;
+        margin-right: 35px;
+        margin-left: 3px;
+      }
+      .DayPicker-Day:hover{
+        border-radius: 10px;
+      }
+      .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        text-align: center;
+        color: #FFFFFF;
+        background-color: #536DFE;
+        border-radius: 10px;
+      }
+    }
+    .appointmentAt {
+      width: 100%;
+      label {
+         width: 230px;
+      }
+    }
+    .checkboxAppointmentAt{
+      width: 35px;
+      height: 35px;
+      margin-top: 17px;
+    }
+    .add-card-btn button{
+      width: 133px;
+      height: 53px;
+      background: #FFFFFF;
+      border: 1px solid #536DFE;
+      box-sizing: border-box;
+      border-radius: 4px;
+      .MuiButton-label {
+        display: flex;
+        justify-content: space-between;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 0.1px;
+      }
+    }
+    .save-as-draft{
+      margin: 17px 0 33px -9px;
+      .MuiTypography-body1{
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: -0.2px;
+        color: rgba(0, 0, 0, 0.87);
+
+      }
+    }
+    .request-btn{
+      margin-bottom: 20px;
+    }
+  }
+}

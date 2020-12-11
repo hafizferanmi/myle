@@ -1,0 +1,89 @@
+.container-button {
+  position: relative;
+
+  button {
+    height: 38px;
+    padding: 5px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);
+    &.without-background {
+      color: #536DFE;
+      background-color: rgba(89, 150, 255, 0);
+      box-shadow: none;
+    }
+    &.without-background:hover {
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2), 0 0 1px rgba(0,0,0,0.14);
+    }
+    &.without-background-border {
+      color: #536DFE;
+      background-color: rgba(89, 150, 255, 0);
+      box-shadow: none;
+      border: 1.5px solid #536DFE;
+      border-radius: 4px;
+    }
+    &.without-background-border:hover {
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2), 0 0 1px rgba(0,0,0,0.14);
+    }
+    &.blue {
+      color: #FFFFFF;
+      background-color: #536DFE;
+    }
+    &.blue:hover {
+      background-color: #4d60b9;
+      border-color: #0062cc;
+    }
+    &.dark {
+      color: #FFFFFF;
+      background-color: #000000;
+    }
+    &.dark:hover {
+      color: #FFFFFF;
+      box-shadow: 0 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    &.gray {
+      color: 0 2px 4px -1px rgba(0,0,0,0.2);
+      background-color: #F4F4F4;
+    }
+    &.gray:hover {
+      box-shadow: 0 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
+      background-color: #eaeaea;
+    }
+
+    &.gray-red {
+      color: red;
+      background-color: #F4F4F4;
+    }
+    &.gray-red:hover {
+      box-shadow: 0 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
+      background-color: #eaeaea;
+    }
+
+    &.red{
+      color: #FFFFFF;
+      background-color: red;
+    }
+    &.red:hover{
+      background-color: #e10000;
+      box-shadow: 0 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12);
+    }
+    &.Mui-disabled{
+      color: rgba(0, 0, 0, 0.26);
+      box-shadow: none;
+      background-color: rgba(0, 0, 0, 0.12);
+    }
+  }
+
+
+  .circular-progress {
+    color: #4C79D1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -12px;
+    margin-left: -12px;
+  }
+}

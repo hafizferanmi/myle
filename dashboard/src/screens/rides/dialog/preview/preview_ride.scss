@@ -1,0 +1,85 @@
+.preview-dialog-toolbar{
+  .container-button{
+    margin-left: 18px;
+  }
+}
+.preview-dialog-title{
+  text-align: center;
+  color: #2B2D39;
+  font-weight: 500;
+  font-size: 20px;
+  padding-top: 20px;
+  border-bottom: 1px solid #DFE2FF;
+
+}
+.preview-dialog-content {
+  flex-direction: row;
+  display: flex;
+  padding: 0;
+  .MuiFormGroup-root {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  label{
+    font-size: 15px;
+  }
+  .information{
+    padding: 25px;
+    width: 600px;
+    max-width: 600px;
+    height: 100%;
+    .title{
+      color: #2B2D39;
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      line-height: 19px;
+    }
+    .container-btn{
+      display: flex;
+      margin-top: 40px;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  .container-table-and-form{
+    min-height: 568px;
+    overflow: hidden;
+    border-left: 1px solid #DFE2FF;
+    .notes {
+      height: 440px;
+      overflow: auto;
+
+      tr, th, td {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+
+        &.date {
+          max-width: 130px;
+          min-width: 130px;
+          text-align: center;
+        }
+
+        &.body {
+          max-width: 250px;
+          min-width: 250px;
+        }
+
+        &.admin {
+          max-width: 100px;
+          min-width: 100px;
+        }
+      }
+    }
+    .send-note-container {
+      flex-direction: row;
+      display: flex;
+      align-items: center;
+      padding: 40px 20px;
+      .note-input {
+        margin: 0;
+      }
+    }
+  }
+}

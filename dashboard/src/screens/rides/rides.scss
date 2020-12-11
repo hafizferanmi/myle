@@ -1,0 +1,270 @@
+.rides-container{
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  overflow: hidden;
+  .panel{
+    display: flex;
+    align-items: center;
+    border: 1px solid #E6E7F0;
+    border-radius: 4px 4px 0 0;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    height: 70px;
+    max-height: 70px;
+  }
+  .linear-progress{
+    width: 100%;
+    z-index: 99999;
+    position: absolute;
+    top: 70px;
+  }
+  .wrapper{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-left: 1px solid #E6E7F0;
+    border-right: 1px solid #E6E7F0;
+    border-bottom: 1px solid #E6E7F0;
+    border-radius: 0 0 4px 4px;
+    .wrapper-table-rides{
+      height: 100%;
+      width: 900px;
+      .table-ride {
+        height: calc(100% - 239px);
+        overflow-y: scroll;
+        overflow-x: hidden;
+        tr{
+          height: 49px !important;
+          max-height: 49px !important;
+          cursor: pointer;
+          transition: .5s;
+          &.Mui-selected {
+            border-left: 15px solid #181e1b;
+          }
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+        p{
+          color: #7587AA;
+          font-size: 12px;
+          &.name{
+            color: #393A46;
+            font-size: 14px;
+            position: relative;
+            .confirmed{
+              position: absolute;
+              padding: 2px;
+              bottom: 2px;
+              i{
+                font-size: 16px;
+                color: green;
+                position: relative;
+              }
+            }
+          }
+          &.subtitle{
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+        }
+        td, th  {
+          padding: 2px 5px;
+          &.id{
+            max-width: 65px;
+            min-width: 65px;
+            text-align: center;
+          }
+          &.name{
+            min-width: 230px;
+            max-width: 230px;
+          }
+          &.driver_information{
+            min-width: 150px;
+            max-width: 150px;
+          }
+          &.address {
+            min-width: 170px;
+            max-width: 170px;
+          }
+          &.action{
+            min-width: 60px;
+            max-width: 60px;
+            button{
+              color: #7587AA;
+            }
+          }
+          &.status{
+            max-width: 200px;
+            min-width: 200px;
+            .container{
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: space-between;
+              margin: 0 10px;
+              line-height: 0;
+              .time{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+
+                .accepted {
+                  margin-top: 15px;
+                }
+              }
+            }
+          }
+
+        }
+        .pagination{
+          display: block;
+          position: fixed;
+          width: 900px;
+          max-width: 900px;
+          padding: 0 15px;
+          background-color: #ffffff;
+          bottom: 0;
+          border-top: 1px solid #E6E7F0;
+          z-index: 100;
+          .MuiTablePagination-toolbar {
+            height: 49px;
+            min-height: 49px;
+            padding: 0;
+          }
+        }
+      }
+    }
+    .ride-info {
+      position: relative;
+      overflow-y: auto;
+      overflow-x: hidden;
+      width: 450px;
+      min-width: 400px;
+      height: calc(100% - 104px);
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #E6E7F0;
+      border-top: none;
+      border-bottom: none;
+      .reference_id{
+        font-weight: 700;
+      }
+      .status {
+        text-transform: uppercase;
+        font-weight: 700;
+        margin: 0;
+      }
+      .company{
+        text-transform: uppercase;
+        margin: 0
+      }
+      .copy{
+        color: #B1B4CB;
+        height: 13px;
+        width: 13px;
+        cursor: pointer;
+      }
+      .note-container{
+        margin: 0 15px;
+        .pickup_note{
+          width: 100%;
+          margin-bottom: -1px;
+          background: #F5F6FB;
+          border-radius: 8px 8px 0 0;
+          font-size: 12px;
+          color: rgba(0,0,0,0.60);
+          letter-spacing: 0.25px;
+          text-align: left;
+          line-height: 16px;
+          .container{
+            margin-bottom: 5px;
+            display: flex;
+            flex-direction: row;
+            .date {
+              width: 115px;
+              font-size: 10px;
+            }
+            .admin {
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+
+    }
+    #rides-map{
+      border-left: 1px solid #E6E7F0;
+      width: 100%;
+      height: 100%;
+      position: relative;
+
+      .car-wav-icon {
+        top: -15px;
+        left: -15px;
+        position: absolute;
+        background-color: #FFF;
+        border-radius: 10px;
+        padding: 3px;
+
+        -webkit-box-shadow: 2px 0px 6px -1px rgba(0,0,0,0.3);
+        -moz-box-shadow: 2px 0px 6px -1px rgba(0,0,0,0.3);
+        box-shadow: 2px 0px 6px -1px rgba(0,0,0,0.3);
+        z-index: 10;
+      }
+
+      .driver-marker {
+        width: 100px;
+        height: 30px;
+        z-index: 50;
+        position: absolute;
+        left: 20px;
+        top: 40px;
+      }
+
+      .driver-name {
+        width: 100px;
+        height: 30px;
+        background-color: #FFFFFF;
+        text-align: center;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        position: absolute;
+        left: -40px;
+        bottom: -40px;
+        z-index: 20;
+      }
+
+      .car-image {
+        width: 55px;
+        height: 80px;
+      }
+
+      .driver-image {
+        bottom: -15px;
+        left: -40px;
+        position: absolute;
+        background-color: #FFF;
+        border-radius: 25px;
+        padding: 2px;
+        width: 50px;
+        height: 50px;
+
+        -webkit-box-shadow: 2px 0px 6px -1px rgba(0,0,0,0.3);
+        -moz-box-shadow: 2px 0px 6px -1px rgba(0,0,0,0.3);
+        box-shadow: 2px 0px 6px -1px rgba(0,0,0,0.3);
+        z-index: 10;
+      }
+
+    }
+  }
+}

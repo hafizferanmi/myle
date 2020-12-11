@@ -1,0 +1,77 @@
+//.header-date-picker{
+//  width: 240px;
+//  display: flex;
+//  align-items: center;
+//  margin: 0 20px;
+//  .DateRangePicker{
+//    position: absolute;
+//    .DateRangePickerInput {
+//      padding: 0 2px 2px;
+//      border-radius: 4px;
+//      border: 1px solid rgba(0, 0, 0, 0.23);
+//      height: 35px !important;
+//    }
+//  }
+//  .DateInput{
+//    width: 100px;
+//    margin: 0 2px;
+//  }
+//  .DateInput_input{
+//    font-size: 1.6rem;
+//    align-items: center;
+//    padding: 5px 6px 4.2px;
+//    line-height: 0;
+//  }
+//  .DateRangePickerInput_arrow{
+//    margin: 3px;
+//  }
+//  .DateInput_input__focused{
+//    border-bottom: 2px solid #4C79D1;
+//  }
+//
+//
+//  .CalendarDay__selected_span {
+//    background: #4C79D1;
+//    color: white;
+//    border: 1px solid #e4e7e7;
+//  }
+//  .CalendarDay__selected {
+//    background: #4C79D1;
+//    color: white;
+//    border: 1px double #e4e7e7;
+//  }
+//  .CalendarDay__selected:hover {
+//    background: #3f51b5;
+//    color: white;
+//    border: 1px double #e4e7e7;
+//  }
+//
+//  .CalendarDay__hovered_span:hover,
+//  .CalendarDay__hovered_span {
+//    background: #e4e7e7;
+//    border: 1px double #FFF;
+//    color: #3f51b5;
+//
+//  }
+//
+//  .DayPickerKeyboardShortcuts_show__bottomRight::before {
+//    border-right: 33px solid #4C79D1;
+//  }
+//  .DayPickerKeyboardShortcuts_show__bottomRight:hover::before {
+//    border-right: 33px solid #3f51b5
+//  }
+//  .DayPickerKeyboardShortcuts_show__topRight::before {
+//    border-right: 33px solid #4C79D1;
+//  }
+//  .DayPickerKeyboardShortcuts_show__topRight:hover::before {
+//    border-right: 33px solid #3f51b5
+//  }
+//
+//  .DayPickerKeyboardShortcuts_show__topLeft::before {
+//    border-left: 33px solid #4C79D1;
+//  }
+//  .DayPickerKeyboardShortcuts_show__topLeft:hover::before {
+//    border-left: 33px solid #3f51b5
+//  }
+//
+//}

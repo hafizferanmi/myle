@@ -1,0 +1,89 @@
+FROM centos:latest
+ENV container docker
+RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
+systemd-tmpfiles-setup.service ] || rm -f $i; done); \
+rm -f /lib/systemd/system/multi-user.target.wants/*;\
+rm -f /etc/systemd/system/*.wants/*;\
+rm -f /lib/systemd/system/local-fs.target.wants/*; \
+rm -f /lib/systemd/system/sockets.target.wants/*udev*; \
+rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
+rm -f /lib/systemd/system/basic.target.wants/*;\
+rm -f /lib/systemd/system/anaconda.target.wants/*;
+VOLUME [ "/sys/fs/cgroup" ]
+
+ENV NVM_DIR /usr/local/nvm
+ENV NODE_VERSION 11.0.0
+
+RUN selinux=0
+
+# INSTALL CENTOS
+RUN yum -y install wget; cd ~; wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm; wget http://rpms.remirepo.net/enterprise/remi-release-8.rpm; rpm -Uvh remi-release-8.rpm epel-release-latest-8.noarch.rpm
+RUN yum -y install yum-utils; yum-config-manager --enable remi-php73; yum -y update;
+RUN yum -y module reset php
+RUN yum -y module enable php:remi-7.3
+
+#INSTALL PACKAGES
+RUN yum -y install httpd \
+                   python-pip \
+                   mod_php \
+                   php-cli \
+                   php-mysqlnd \
+                   php-gd \
+                   php-mbstring \
+                   php-soap \
+                   php-json \
+                   php-xml \
+                   php-bcmath \
+                   php-zip \
+                   php-pecl-zip \
+                   mod_ssl \
+                   cronie \
+                   git \
+                   unzip \
+                   gcc-c++ \
+                   libcurl-devel \
+                   python3 \
+                   python3-devel \
+                   python3-paramiko
+
+RUN yum clean all;
+
+# INSTALL NVM/NPM/NODE
+# install nvm - https://github.com/creationix/nvm#install-script
+RUN curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
+
+# install node and npm
+RUN source $NVM_DIR/nvm.sh \
+    && nvm install $NODE_VERSION \
+    && nvm alias default $NODE_VERSION \
+    && nvm use default
+
+# add node and npm to path so the commands are available
+ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
+ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
+ENV NPM_PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin/npm
+RUN npm install -g yarn node-gyp
+
+COPY config/php.ini /etc/php.ini
+COPY config/httpd.conf /etc/httpd/conf
+COPY config/ssl.conf /etc/httpd/conf.d
+COPY config/non-ssl.conf /etc/httpd/conf.d
+COPY config/ssl_certificates/myle.tech.crt /etc/ssl/certs
+COPY config/ssl_certificates/myle.tech.key /etc/ssl/certs
+COPY config/ssl_certificates/myle.tech.ca-bundle /etc/ssl/certs
+
+# build app
+COPY dashboard /var/www/dashboard
+RUN npm --prefix /var/www/dashboard install
+RUN npm --prefix /var/www/dashboard run build
+RUN mv /var/www/dashboard/build/* /var/www/html
+RUN rm -rf /var/www/dashboard
+
+# move files to html
+COPY config/.htaccess /var/www/html/.htaccess
+
+RUN systemctl enable httpd.service
+
+EXPOSE 80
+EXPOSE 443
+CMD ["/usr/sbin/init"]
